@@ -4,7 +4,7 @@ P=40; %P e perioada semnalului
 D=17; %un factor de umplere 17 din 40 este egal cu 42,5%, deci durata impulsului e 42,5% din perioada
 N=50; %Nr de coeficienti ai seriei Fourier
 Frecv=1/P; %Frecventa semnalului, care e inversul perioadei
-t=0:0.002:4*P-0.002; %Am esantionat semnalul si am ales 4*P pentru a afisa 4 perioada ale aceluias semnal la fel
+t=0:0.002:4*P-0.002; %Am esantionat semnalul si am ales 4*P pentru a afisa 4 perioada ale aceluiasi semnal la fel
 %ca in exemplul atasat in PDF
 w0=2*pi*Frecv; %w0 e pulsatia unghiulara a semnalului
 x=0.5+0.5*square(2*pi*t/P,42.5); %am realizat semnalul dreptunghiular cu factorul de umplere 42,5% 
@@ -14,7 +14,7 @@ x=0.5+0.5*square(2*pi*t/P,42.5); %am realizat semnalul dreptunghiular cu factoru
 % Determinam coeficientii SFE
 for k = -N:N %k este variabila dupa care se realizeaza suma
     xf = x; %xf e semnalul nostru realizat dupa formula SF data
-    xf = xf.*exp(-j*k*w0*t); %de la prima tema .*=înmul?ire între dou? matrice (sau vectori) element cu element
+    xf = xf.*exp(-j*k*w0*t); %de la prima tema .*=Ã®nmul?ire Ã®ntre dou? matrice (sau vectori) element cu element
     X(k+51) = trapz(t,xf); %functia realizeaza integrala trapezoidala returnand cea mai apropiata valoare.
                            %integrala e echivalentul unei sume, motiv
                            %pentru care a folosit aceasta functie pe care
