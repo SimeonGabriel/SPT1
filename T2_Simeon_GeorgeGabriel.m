@@ -2,7 +2,8 @@
 % cu perioada P=40 si numarul de coeficienti N = 50 si durata semnalului D=17
 P=40; %P e perioada semnalului
 D=17; %un factor de umplere 17 din 40 este egal cu 42,5%, deci durata impulsului e 42,5% din perioada
-N=25; %Nr de coeficienti ai seriei Fourier,deci de la -25 la 25 sunt 50 de termeni
+N=25; %Nr de coeficienti ai seriei Fourier,deci de la -25 la 25 sunt 50 de termeni, asa am interpretat, daca se doreste ca N sa fie 
+%fix 50, atunci in loc de N=25 punem N=50 iar pe linia 19, semnalul va fi X(k+51) in loc de X(k+26)
 Frecv=1/P; %Frecventa semnalului, care e inversul perioadei
 t=0:0.002:4*P-0.002; %Am esantionat semnalul si am ales 4*P pentru a afisa 4 perioada ale aceluias semnal la fel
 %ca in exemplul atasat in PDF
@@ -14,7 +15,7 @@ x=0.5+0.5*square(2*pi*t/P,42.5); %am realizat semnalul dreptunghiular cu factoru
 % Determinam coeficientii SFE
 for k = -N:N %k este variabila dupa care se realizeaza suma
     xf = x; %xf e semnalul nostru realizat dupa formula SF data
-    xf = xf.*exp(-j*k*w0*t); %de la prima tema .*=înmul?ire între dou? matrice (sau vectori) element cu element
+    xf = xf.*exp(-j*k*w0*t); %de la prima tema .*=Ã®nmul?ire Ã®ntre dou? matrice (sau vectori) element cu element
     X(k+26) = trapz(t,xf); %functia realizeaza integrala trapezoidala returnand cea mai apropiata valoare.
                            %integrala e echivalentul unei sume, motiv
                            %pentru care a folosit aceasta functie pe care
